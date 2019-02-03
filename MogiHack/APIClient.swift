@@ -10,7 +10,7 @@ import Foundation
 import MapKit
 
 struct CallsResponse: Codable {
-    var id: String
+    var _id: String
     var priority: Int
     var description: String
     var local: String
@@ -22,7 +22,7 @@ struct CallsResponse: Codable {
 class APIClient {
     
     static func getCalls(completion: @escaping ([Call]?) -> ()) {
-        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/1h75vg")!)
+        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/")!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
@@ -54,9 +54,9 @@ class APIClient {
         return calls
     }
     
-    static func postResolvedCall(with id: String, completion: @escaping (Bool) -> ()) {
-        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/1h75vg/\(id)")!)
-        request.httpMethod = "GET"
+    static func postResolvedCall(with call: Call, completion: @escaping (Bool) -> ()) {
+        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/\(call.id)/\(call.status.rawValue+1)")!)
+        request.httpMethod = "POST"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
                 completion(false)

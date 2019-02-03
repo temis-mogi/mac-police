@@ -34,6 +34,8 @@ enum Status: Int {
         case 0:
             return "Pendente"
         case 1:
+            return "Em progresso"
+        case 2:
             return "Resolvido"
         default:
             return "'"
@@ -69,7 +71,7 @@ class Call: NSObject, MKAnnotation {
     class func convert(response: [CallsResponse]) -> [Call] {
         var calls = [Call]()
         for element in response {
-            let call = Call(id: element.id, priority: Priority(rawValue: element.priority)!, shortDescription: element.description, local: element.local, status: Status(rawValue: element.status)!, coordinate: CLLocationCoordinate2D(latitude: element.latitude, longitude: element.longitude))
+            let call = Call(id: element._id, priority: Priority(rawValue: element.priority)!, shortDescription: element.description, local: element.local, status: Status(rawValue: element.status)!, coordinate: CLLocationCoordinate2D(latitude: element.latitude, longitude: element.longitude))
             calls.append(call)
         }
         return calls

@@ -25,6 +25,8 @@ class OperatorViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        tableView.target = self
+        tableView.doubleAction = #selector(tableViewDoubleClick(_:))
     }
     
     override func viewWillAppear() {
@@ -35,6 +37,15 @@ class OperatorViewController: NSViewController {
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
         if segue.destinationController is MapViewController {
             mapViewController = segue.destinationController as? MapViewController
+        }
+    }
+    
+    @objc func tableViewDoubleClick(_ sender:AnyObject) {
+        guard tableView.selectedRow >= 0 else { return }
+        APIClient.postResolvedCall(with: calls[tableView.selectedRow]) { (success) in
+            if success {
+                self.loadCalls()
+            }
         }
     }
     
