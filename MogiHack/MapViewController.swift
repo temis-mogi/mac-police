@@ -20,8 +20,8 @@ class MapViewController: NSViewController {
     }
     
     public func mockFocus() {
-        let centerCoordinate = CLLocationCoordinate2D(latitude: -23.511200, longitude: -46.153950)
-        focus(in: centerCoordinate, with: 1000)
+        let centerCoordinate = CLLocationCoordinate2D(latitude: -23.524003, longitude: -46.193399)
+        focus(in: centerCoordinate, with: 5000)
     }
     
     func focus(in coordinate: CLLocationCoordinate2D, with distance: CLLocationDistance) {
@@ -34,7 +34,7 @@ class MapViewController: NSViewController {
     }
     
     func select(call: Call) {
-        focus(in: call.coordinate, with: 500)
+        focus(in: call.coordinate, with: 700)
         mapView.selectAnnotation(call, animated: true)
     }
     

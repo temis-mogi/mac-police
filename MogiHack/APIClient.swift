@@ -11,18 +11,18 @@ import MapKit
 
 struct CallsResponse: Codable {
     var _id: String
-    var priority: Int
+    var priority: String
     var description: String
-    var local: String
-    var latitude: Double
-    var longitude: Double
-    var status: Int
+    var address: String
+    var lat: Double
+    var lng: Double
+    var status: String
 }
 
 class APIClient {
     
     static func getCalls(completion: @escaping ([Call]?) -> ()) {
-        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/t7lws")!)
+        var request = URLRequest(url: URL(string: "https://temis.mybluemix.net/call")!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
@@ -32,6 +32,7 @@ class APIClient {
             if let jsonData = data {
                 let decoder = JSONDecoder()
                 do {
+                    
                     let callsResp = try decoder.decode([CallsResponse].self, from: jsonData)
                     var calls = Call.convert(response: callsResp)
                     calls.sort(by: {$0.priority.rawValue > $1.priority.rawValue})
@@ -54,12 +55,9 @@ class APIClient {
         return calls
     }
     
-    static func postResolvedCall(with call: Call, completion: @escaping (Bool) -> ()) {
-        var nextStatus = call.status.rawValue+1
-        if nextStatus > 2 {
-            nextStatus = 0
-        }
-        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/\(call.id)/\(nextStatus)")!)
+    static func postResolvedCall(with call: Call, to nextStatus: Int, completion: @escaping (Bool) -> ()) {
+        let urlString = "https://temis.mybluemix.net/call/status/\(call.id)/\(nextStatus)"
+        var request = URLRequest(url: URL(string: urlString)!)
         request.httpMethod = "POST"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {

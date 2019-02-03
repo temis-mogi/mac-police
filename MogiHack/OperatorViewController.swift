@@ -19,6 +19,7 @@ class OperatorViewController: NSViewController {
     
     @IBOutlet var tableView: NSTableView!
     @IBOutlet var infoView: InfoView!
+    @IBOutlet var segmentedControl: NSSegmentedControl!
     var mapViewController: MapViewController!
     var calls = [Call]()
     
@@ -27,6 +28,7 @@ class OperatorViewController: NSViewController {
         super.viewDidLoad()
         tableView.target = self
         tableView.doubleAction = #selector(tableViewDoubleClick(_:))
+        segmentedControl.isEnabled = false
     }
     
     override func viewWillAppear() {
@@ -41,16 +43,22 @@ class OperatorViewController: NSViewController {
     }
     
     @objc func tableViewDoubleClick(_ sender:AnyObject) {
-        guard tableView.selectedRow >= 0 else { return }
-        APIClient.postResolvedCall(with: calls[tableView.selectedRow]) { (success) in
-            if success {
-                self.loadCalls()
-            }
-        }
     }
     
     @IBAction public func refreshPressed(_ sender: NSToolbarItem) {
         loadCalls()
+    }
+    
+    @IBAction func segmentedControlChanged(_ sender: NSSegmentedControl) {
+        guard tableView.selectedRow >= 0 else { return }
+        APIClient.postResolvedCall(with: calls[tableView.selectedRow], to: sender.selectedSegment) { (success) in
+            if success {
+                self.loadCalls()
+                DispatchQueue.main.async {
+                    self.segmentedControl.isEnabled = false
+                }
+            }
+        }
     }
     
     func loadCalls() {
@@ -107,8 +115,12 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
         guard tableView.selectedRow >= 0 else {
             mapViewController.deselect()
             mapViewController.mockFocus()
+            segmentedControl.isEnabled = false
             return
         }
-        mapViewController.select(call: calls[tableView.selectedRow])
+        let call = calls[tableView.selectedRow]
+        mapViewController.select(call: call)
+        segmentedControl.isEnabled = true
+        segmentedControl.selectedSegment = call.status.rawValue
     }
 }
