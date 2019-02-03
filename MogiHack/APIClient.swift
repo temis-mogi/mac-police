@@ -22,7 +22,7 @@ struct CallsResponse: Codable {
 class APIClient {
     
     static func getCalls(completion: @escaping ([Call]?) -> ()) {
-        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/")!)
+        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/t7lws")!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
