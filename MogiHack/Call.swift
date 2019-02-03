@@ -7,6 +7,19 @@
 //
 
 import Foundation
+import MapKit
 
-struct Call: Codable {
+enum Priority: Int {
+    case minor = 0, major, critical
+}
+
+class Call: NSObject, MKAnnotation {
+    
+    var priority: Priority
+    var coordinate: CLLocationCoordinate2D
+    
+    init(priority: Priority, coordinate: CLLocationCoordinate2D) {
+        self.priority = priority
+        self.coordinate = coordinate
+    }
 }

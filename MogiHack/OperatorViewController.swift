@@ -9,10 +9,30 @@
 import Cocoa
 
 class OperatorViewController: NSViewController {
-
+    
+    @IBOutlet var infoView: InfoView!
+    var mapViewController: MapViewController!
+    var calls = [Call]()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do view setup here.
     }
     
+    override func viewWillAppear() {
+        super.viewWillAppear()
+        loadCalls()
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if segue.destinationController is MapViewController {
+            mapViewController = segue.destinationController as? MapViewController
+        }
+    }
+    
+    func loadCalls() {
+        calls = APIClient.getMockCalls()
+        mapViewController.add(calls: calls)
+        infoView.add(calls: calls)
+    }
 }

@@ -9,20 +9,28 @@
 /* Begin PBXBuildFile section */
 		A28D695522065ED1008A7C9B /* OperatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D695422065ED1008A7C9B /* OperatorViewController.swift */; };
 		A28D69572206658D008A7C9B /* Call.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D69562206658D008A7C9B /* Call.swift */; };
+		A28D695922066A00008A7C9B /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D695822066A00008A7C9B /* MapViewController.swift */; };
+		A28D695D2206767C008A7C9B /* APIClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D695C2206767C008A7C9B /* APIClient.swift */; };
+		A28D695F22067E4F008A7C9B /* InfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A28D695E22067E4F008A7C9B /* InfoView.swift */; };
 		A2CAEE6F220632BE00D69B9F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2CAEE6E220632BE00D69B9F /* AppDelegate.swift */; };
 		A2CAEE73220632C000D69B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CAEE72220632C000D69B9F /* Assets.xcassets */; };
 		A2CAEE76220632C000D69B9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2CAEE74220632C000D69B9F /* Main.storyboard */; };
+		A2D588392206807A00EFD33B /* TotalCallsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D588382206807A00EFD33B /* TotalCallsBox.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		A28D695422065ED1008A7C9B /* OperatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OperatorViewController.swift; sourceTree = "<group>"; };
 		A28D69562206658D008A7C9B /* Call.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Call.swift; sourceTree = "<group>"; };
+		A28D695822066A00008A7C9B /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		A28D695C2206767C008A7C9B /* APIClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIClient.swift; sourceTree = "<group>"; };
+		A28D695E22067E4F008A7C9B /* InfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoView.swift; sourceTree = "<group>"; };
 		A2CAEE6B220632BE00D69B9F /* MogiHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MogiHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A2CAEE6E220632BE00D69B9F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A2CAEE72220632C000D69B9F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A2CAEE75220632C000D69B9F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A2CAEE77220632C000D69B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CAEE78220632C000D69B9F /* MogiHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MogiHack.entitlements; sourceTree = "<group>"; };
+		A2D588382206807A00EFD33B /* TotalCallsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCallsBox.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,13 +63,17 @@
 		A2CAEE6D220632BE00D69B9F /* MogiHack */ = {
 			isa = PBXGroup;
 			children = (
-				A2CAEE6E220632BE00D69B9F /* AppDelegate.swift */,
-				A2CAEE72220632C000D69B9F /* Assets.xcassets */,
 				A2CAEE74220632C000D69B9F /* Main.storyboard */,
 				A28D695422065ED1008A7C9B /* OperatorViewController.swift */,
+				A28D695C2206767C008A7C9B /* APIClient.swift */,
+				A2CAEE6E220632BE00D69B9F /* AppDelegate.swift */,
+				A2CAEE72220632C000D69B9F /* Assets.xcassets */,
+				A28D695822066A00008A7C9B /* MapViewController.swift */,
 				A28D69562206658D008A7C9B /* Call.swift */,
 				A2CAEE77220632C000D69B9F /* Info.plist */,
 				A2CAEE78220632C000D69B9F /* MogiHack.entitlements */,
+				A28D695E22067E4F008A7C9B /* InfoView.swift */,
+				A2D588382206807A00EFD33B /* TotalCallsBox.swift */,
 			);
 			path = MogiHack;
 			sourceTree = "<group>";
@@ -139,6 +151,10 @@
 				A28D695522065ED1008A7C9B /* OperatorViewController.swift in Sources */,
 				A28D69572206658D008A7C9B /* Call.swift in Sources */,
 				A2CAEE6F220632BE00D69B9F /* AppDelegate.swift in Sources */,
+				A28D695922066A00008A7C9B /* MapViewController.swift in Sources */,
+				A28D695F22067E4F008A7C9B /* InfoView.swift in Sources */,
+				A2D588392206807A00EFD33B /* TotalCallsBox.swift in Sources */,
+				A28D695D2206767C008A7C9B /* APIClient.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
