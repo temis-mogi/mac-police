@@ -60,11 +60,13 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         var cellIdentifier = ""
-        var text = "Test"
+        var text = ""
+        var image: NSImage?
         let call = calls[row]
         switch tableColumn {
         case tableView.tableColumns[0]:
             cellIdentifier = CellIdentifiers.priorityCell
+            image = NSImage(named: "\(call.priority.description().folding(options: .diacriticInsensitive, locale: .current).lowercased())-icon")            
             text = call.priority.description()
         case tableView.tableColumns[1]:
             cellIdentifier = CellIdentifiers.descriptionCell
@@ -80,6 +82,7 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
         }
         let cell = tableView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: cellIdentifier), owner: nil) as? NSTableCellView
         cell?.textField?.stringValue = text
+        cell?.imageView?.image = image ?? nil
         return cell
     }
 }
