@@ -22,6 +22,7 @@ class MapViewController: NSViewController {
     }
     
     func add(calls: [Call]) {
+        mapView.removeAnnotations(mapView.annotations)
         mapView.addAnnotations(calls)
     }
 }

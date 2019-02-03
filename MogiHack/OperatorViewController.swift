@@ -30,6 +30,10 @@ class OperatorViewController: NSViewController {
         }
     }
     
+    @IBAction public func refreshPressed(_ sender: NSToolbarItem) {
+        loadCalls()
+    }
+    
     func loadCalls() {
         calls = APIClient.getMockCalls()
         mapViewController.add(calls: calls)

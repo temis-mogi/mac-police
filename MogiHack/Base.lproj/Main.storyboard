@@ -685,11 +685,63 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
+                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" titleVisibility="hidden" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
+                        <toolbar key="toolbar" implicitIdentifier="2B78323D-9A85-47CC-A3D8-1F3070B7320E" autosavesConfiguration="NO" displayMode="iconAndLabel" sizeMode="small" id="ohA-ty-Q9n">
+                            <allowedToolbarItems>
+                                <toolbarItem implicitItemIdentifier="NSToolbarFlexibleSpaceItem" id="bn7-N0-GN1"/>
+                                <toolbarItem implicitItemIdentifier="444414F1-E6AB-486B-A5DA-1B64672742C6" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="SXL-c6-IrG">
+                                    <nil key="toolTip"/>
+                                    <searchField key="view" wantsLayer="YES" verticalHuggingPriority="750" textCompletion="NO" id="H5V-oQ-SUF">
+                                        <rect key="frame" x="0.0" y="14" width="96" height="22"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <searchFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" borderStyle="bezel" usesSingleLineMode="YES" bezelStyle="round" id="nJB-do-1aU">
+                                            <font key="font" metaFont="system"/>
+                                            <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        </searchFieldCell>
+                                    </searchField>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="lQv-xF-7oV"/>
+                                <toolbarItem implicitItemIdentifier="CD348B15-0C64-446A-A8E7-99E334E7B2F0" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="C9d-xt-oFO">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="Ykc-fx-KYw">
+                                        <rect key="frame" x="0.0" y="14" width="133" height="43"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="push" title="Exportar PDF" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="Qfp-qP-lwf">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                </toolbarItem>
+                                <toolbarItem implicitItemIdentifier="F972EFF7-1C8A-48AD-8D7E-93A8CD77878D" label="Refresh" paletteLabel="Refresh" image="refresh-icon" sizingBehavior="auto" id="mZS-3L-Bld">
+                                    <nil key="toolTip"/>
+                                    <button key="view" verticalHuggingPriority="750" id="Nby-Do-T8D">
+                                        <rect key="frame" x="4" y="14" width="40" height="25"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                        <buttonCell key="cell" type="roundTextured" bezelStyle="texturedRounded" image="refresh-icon" imagePosition="overlaps" alignment="center" lineBreakMode="truncatingTail" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="4Cg-Re-NdM">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="system"/>
+                                        </buttonCell>
+                                    </button>
+                                    <connections>
+                                        <action selector="refreshPressed:" target="Oky-zY-oP4" id="3xe-Hq-3zm"/>
+                                    </connections>
+                                </toolbarItem>
+                            </allowedToolbarItems>
+                            <defaultToolbarItems>
+                                <toolbarItem reference="lQv-xF-7oV"/>
+                                <toolbarItem reference="bn7-N0-GN1"/>
+                                <toolbarItem reference="SXL-c6-IrG"/>
+                                <toolbarItem reference="bn7-N0-GN1"/>
+                                <toolbarItem reference="mZS-3L-Bld"/>
+                                <toolbarItem reference="C9d-xt-oFO"/>
+                                <toolbarItem reference="lQv-xF-7oV"/>
+                            </defaultToolbarItems>
+                        </toolbar>
                         <connections>
                             <outlet property="delegate" destination="B8D-0N-5wS" id="98r-iN-zZc"/>
                         </connections>
@@ -1148,6 +1200,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="refresh-icon" width="75" height="75"/>
         <image name="resize-icon" width="75" height="75"/>
     </resources>
 </document>

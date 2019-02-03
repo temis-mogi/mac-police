@@ -18,8 +18,8 @@ class TotalCallsBox: NSBox {
         let minor = calls.filter {$0.priority == .minor}
         minorTextField.stringValue = "\(minor.count)"
         let major = calls.filter {$0.priority == .major}
-        minorTextField.stringValue = "\(major.count)"
+        majorTextField.stringValue = "\(major.count)"
         let critical = calls.filter {$0.priority == .critical}
-        minorTextField.stringValue = "\(critical.count)"
+        criticalTextField.stringValue = "\(critical.count)"
     }
 }
