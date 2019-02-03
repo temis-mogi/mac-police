@@ -712,8 +712,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <mapView fixedFrame="YES" mapType="standard" rotateEnabled="NO" pitchEnabled="NO" showsBuildings="NO" showsPointsOfInterest="NO" showsCompass="NO" showsZoomControls="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2OK-kP-hdF">
-                                <rect key="frame" x="423" y="0.0" width="459" height="288"/>
+                                <rect key="frame" x="438" y="12" width="429" height="268"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="8"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                             </mapView>
                             <scrollView fixedFrame="YES" autohidesScrollers="YES" horizontalLineScroll="26" horizontalPageScroll="10" verticalLineScroll="26" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HFq-xq-NsW">
                                 <rect key="frame" x="0.0" y="0.0" width="425" height="449"/>
@@ -792,7 +797,7 @@
                                     <nil key="backgroundColor"/>
                                 </clipView>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="w9N-CY-yXq">
-                                    <rect key="frame" x="1" y="432" width="413" height="16"/>
+                                    <rect key="frame" x="1" y="432" width="356" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="4uF-ab-0mZ">
@@ -911,6 +916,14 @@
                                     </subviews>
                                 </view>
                                 <font key="titleFont" metaFont="smallSystem"/>
+                            </box>
+                            <box horizontalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="mAl-2X-ndD">
+                                <rect key="frame" x="428" y="12" width="5" height="425"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="abu-8l-Qhq">
+                                <rect key="frame" x="439" y="285" width="429" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
                         </subviews>
                     </view>
