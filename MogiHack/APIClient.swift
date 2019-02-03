@@ -55,7 +55,11 @@ class APIClient {
     }
     
     static func postResolvedCall(with call: Call, completion: @escaping (Bool) -> ()) {
-        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/\(call.id)/\(call.status.rawValue+1)")!)
+        var nextStatus = call.status.rawValue+1
+        if nextStatus > 2 {
+            nextStatus = 0
+        }
+        var request = URLRequest(url: URL(string: "http://temis.mybluemix.net/\(call.id)/\(nextStatus)")!)
         request.httpMethod = "POST"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
