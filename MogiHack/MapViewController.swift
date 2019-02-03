@@ -37,15 +37,13 @@ class MapViewController: NSViewController {
         focus(in: call.coordinate, with: 500)
         mapView.selectAnnotation(call, animated: true)
     }
+    
+    func deselect(call: Call? = nil) {
+        mapView.deselectAnnotation(mapView.selectedAnnotations.first, animated: true)
+    }
 }
 
 
 
 extension MapViewController: MKMapViewDelegate {
-    
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-    }
-    
-    func mapView(_ mapView: MKMapView, didDeselect view: MKAnnotationView) {
-    }
 }

@@ -94,6 +94,7 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
     
     func tableViewSelectionDidChange(_ notification: Notification) {
         guard tableView.selectedRow >= 0 else {
+            mapViewController.deselect()
             mapViewController.mockFocus()
             return
         }
