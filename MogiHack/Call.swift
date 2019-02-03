@@ -57,4 +57,13 @@ class Call: NSObject, MKAnnotation {
         self.status = status
         self.coordinate = coordinate
     }
+    
+    class func convert(response: [CallsResponse]) -> [Call] {
+        var calls = [Call]()
+        for element in response {
+            let call = Call(priority: Priority(rawValue: element.priority)!, shortDescription: element.description, local: element.local, status: Status(rawValue: element.status)!, coordinate: CLLocationCoordinate2D(latitude: element.latitude, longitude: element.longitude))
+            calls.append(call)
+        }
+        return calls
+    }
 }

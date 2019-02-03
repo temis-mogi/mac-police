@@ -43,10 +43,16 @@ class OperatorViewController: NSViewController {
     }
     
     func loadCalls() {
-        calls = APIClient.getMockCalls()
-        mapViewController.add(calls: calls)
-        infoView.add(calls: calls)
-        tableView.reloadData()
+        APIClient.getCalls(completion: { calls in
+            DispatchQueue.main.async {
+                if let calls = calls {
+                    self.calls = calls
+                    self.mapViewController.add(calls: calls)
+                    self.infoView.add(calls: calls)
+                    self.tableView.reloadData()
+                }
+            }
+        })
     }
 }
 
@@ -66,7 +72,7 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
         switch tableColumn {
         case tableView.tableColumns[0]:
             cellIdentifier = CellIdentifiers.priorityCell
-            image = NSImage(named: "\(call.priority.description().folding(options: .diacriticInsensitive, locale: .current).lowercased())-icon")            
+            image = NSImage(named: "\(call.priority.description().folding(options: .diacriticInsensitive, locale: .current).lowercased())-icon")
             text = call.priority.description()
         case tableView.tableColumns[1]:
             cellIdentifier = CellIdentifiers.descriptionCell
@@ -85,4 +91,5 @@ extension OperatorViewController: NSTableViewDelegate, NSTableViewDataSource {
         cell?.imageView?.image = image ?? nil
         return cell
     }
+    
 }

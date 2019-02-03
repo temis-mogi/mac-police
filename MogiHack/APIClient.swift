@@ -9,10 +9,36 @@
 import Foundation
 import MapKit
 
+struct CallsResponse: Codable {
+    var priority: Int
+    var description: String
+    var local: String
+    var latitude: Double
+    var longitude: Double
+    var status: Int
+}
+
 class APIClient {
     
-    static func getCalls() {
-        
+    static func getCalls(completion: @escaping ([Call]?) -> ()) {
+        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/kgblo")!)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                completion(nil)
+                return
+            }
+            if let jsonData = data {
+                let decoder = JSONDecoder()
+                do {
+                    let callsResp = try decoder.decode([CallsResponse].self, from: jsonData)
+                    let calls = Call.convert(response: callsResp)
+                    completion(calls)
+                } catch {
+                    completion(nil)
+                }
+            }
+        }.resume()
     }
     
     static func getMockCalls() -> [Call] {
