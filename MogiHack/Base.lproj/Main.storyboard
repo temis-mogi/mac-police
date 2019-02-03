@@ -706,7 +706,7 @@
                                     </searchField>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="NSToolbarSpaceItem" id="lQv-xF-7oV"/>
-                                <toolbarItem implicitItemIdentifier="CD348B15-0C64-446A-A8E7-99E334E7B2F0" label="Custom View" paletteLabel="Custom View" sizingBehavior="auto" id="C9d-xt-oFO">
+                                <toolbarItem implicitItemIdentifier="CD348B15-0C64-446A-A8E7-99E334E7B2F0" label="Export PDF" paletteLabel="Export PDF" sizingBehavior="auto" id="C9d-xt-oFO">
                                     <nil key="toolTip"/>
                                     <button key="view" verticalHuggingPriority="750" id="Ykc-fx-KYw">
                                         <rect key="frame" x="0.0" y="14" width="133" height="43"/>
@@ -716,6 +716,9 @@
                                             <font key="font" metaFont="system"/>
                                         </buttonCell>
                                     </button>
+                                    <connections>
+                                        <segue destination="HcJ-pX-L6y" kind="sheet" id="XNN-5X-jFv"/>
+                                    </connections>
                                 </toolbarItem>
                                 <toolbarItem implicitItemIdentifier="F972EFF7-1C8A-48AD-8D7E-93A8CD77878D" label="Refresh" paletteLabel="Refresh" image="refresh-icon" sizingBehavior="auto" id="mZS-3L-Bld">
                                     <nil key="toolTip"/>
@@ -753,6 +756,53 @@
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="75" y="250"/>
+        </scene>
+        <!--Report View Controller-->
+        <scene sceneID="rL5-X9-K5t">
+            <objects>
+                <viewController id="HcJ-pX-L6y" customClass="ReportViewController" customModule="MogiHack" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="G1m-gF-LnA">
+                        <rect key="frame" x="0.0" y="0.0" width="345" height="546"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vtJ-OC-0eS">
+                                <rect key="frame" x="0.0" y="61" width="345" height="485"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="report" id="WHI-6W-pii"/>
+                            </imageView>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ZZj-Ny-5mt">
+                                <rect key="frame" x="241" y="13" width="90" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Imprimir" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="g7w-Jk-FSu">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="m7J-f8-6KH">
+                                <rect key="frame" x="104" y="13" width="137" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Enviar por email" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="b6o-cv-7uB">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dME-nE-D2W">
+                                <rect key="frame" x="14" y="13" width="82" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <buttonCell key="cell" type="push" title="Fechar" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="UUM-fo-v24">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="closePressed:" target="HcJ-pX-L6y" id="95k-fo-eAe"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </view>
+                </viewController>
+                <customObject id="vhk-Z8-IWa" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="599.5" y="163"/>
         </scene>
         <!--Operator View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -951,7 +1001,7 @@
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="3AV-OG-lv2" viewBased="YES" id="SBD-vS-s4c">
-                                            <rect key="frame" x="0.0" y="0.0" width="656" height="423"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="654" height="423"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <size key="intercellSpacing" width="3" height="2"/>
                                             <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -1070,7 +1120,7 @@
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>
-                                                <tableColumn width="164" minWidth="10" maxWidth="3.4028234663852886e+38" id="W64-Ft-knY">
+                                                <tableColumn width="162" minWidth="10" maxWidth="3.4028234663852886e+38" id="W64-Ft-knY">
                                                     <tableHeaderCell key="headerCell" lineBreakMode="truncatingTail" borderStyle="border" alignment="left" title="Status">
                                                         <font key="font" metaFont="smallSystem"/>
                                                         <color key="textColor" name="headerTextColor" catalog="System" colorSpace="catalog"/>
@@ -1084,11 +1134,11 @@
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
                                                         <tableCellView identifier="StatusCellID" id="JV2-DL-oRk">
-                                                            <rect key="frame" x="490" y="1" width="164" height="17"/>
+                                                            <rect key="frame" x="490" y="1" width="162" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="XTy-MG-Uag">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="17"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="162" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Table View Cell" id="a8Z-Ra-82H">
                                                                         <font key="font" metaFont="system"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -1116,7 +1166,7 @@
                                     </subviews>
                                     <nil key="backgroundColor"/>
                                 </clipView>
-                                <scroller key="horizontalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="65x-OH-kV8">
+                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="65x-OH-kV8">
                                     <rect key="frame" x="1" y="432" width="654" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
@@ -1125,7 +1175,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <tableHeaderView key="headerView" id="3AV-OG-lv2">
-                                    <rect key="frame" x="0.0" y="0.0" width="656" height="25"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="654" height="25"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableHeaderView>
                             </scrollView>
@@ -1209,6 +1259,7 @@
     <resources>
         <image name="NSActionTemplate" width="14" height="14"/>
         <image name="refresh-icon" width="75" height="75"/>
+        <image name="report" width="595.20001220703125" height="841.91998291015625"/>
         <image name="resize-icon" width="75" height="75"/>
     </resources>
 </document>

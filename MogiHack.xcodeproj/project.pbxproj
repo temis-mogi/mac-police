@@ -16,6 +16,7 @@
 		A2CAEE73220632C000D69B9F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A2CAEE72220632C000D69B9F /* Assets.xcassets */; };
 		A2CAEE76220632C000D69B9F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A2CAEE74220632C000D69B9F /* Main.storyboard */; };
 		A2D588392206807A00EFD33B /* TotalCallsBox.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2D588382206807A00EFD33B /* TotalCallsBox.swift */; };
+		A2EA68F12206BD6B0098B236 /* ReportViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2EA68F02206BD6B0098B236 /* ReportViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,6 +32,7 @@
 		A2CAEE77220632C000D69B9F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A2CAEE78220632C000D69B9F /* MogiHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MogiHack.entitlements; sourceTree = "<group>"; };
 		A2D588382206807A00EFD33B /* TotalCallsBox.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TotalCallsBox.swift; sourceTree = "<group>"; };
+		A2EA68F02206BD6B0098B236 /* ReportViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReportViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 				A2CAEE78220632C000D69B9F /* MogiHack.entitlements */,
 				A28D695E22067E4F008A7C9B /* InfoView.swift */,
 				A2D588382206807A00EFD33B /* TotalCallsBox.swift */,
+				A2EA68F02206BD6B0098B236 /* ReportViewController.swift */,
 			);
 			path = MogiHack;
 			sourceTree = "<group>";
@@ -148,6 +151,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A2EA68F12206BD6B0098B236 /* ReportViewController.swift in Sources */,
 				A28D695522065ED1008A7C9B /* OperatorViewController.swift in Sources */,
 				A28D69572206658D008A7C9B /* Call.swift in Sources */,
 				A2CAEE6F220632BE00D69B9F /* AppDelegate.swift in Sources */,

@@ -10,6 +10,7 @@ import Foundation
 import MapKit
 
 struct CallsResponse: Codable {
+    var id: String
     var priority: Int
     var description: String
     var local: String
@@ -21,7 +22,7 @@ struct CallsResponse: Codable {
 class APIClient {
     
     static func getCalls(completion: @escaping ([Call]?) -> ()) {
-        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/kgblo")!)
+        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/1h75vg")!)
         request.httpMethod = "GET"
         URLSession.shared.dataTask(with: request) { (data, response, error) in
             guard error == nil else {
@@ -32,7 +33,8 @@ class APIClient {
                 let decoder = JSONDecoder()
                 do {
                     let callsResp = try decoder.decode([CallsResponse].self, from: jsonData)
-                    let calls = Call.convert(response: callsResp)
+                    var calls = Call.convert(response: callsResp)
+                    calls.sort(by: {$0.priority.rawValue > $1.priority.rawValue})
                     completion(calls)
                 } catch {
                     completion(nil)
@@ -46,9 +48,21 @@ class APIClient {
         for _ in 0...Int.random(in: 0...100) {
             let lat = "-23.51\(Int.random(in: 0...9))120"
             let long = "-46.15\(Int.random(in: 0...9))390"
-            let call = Call(priority: Priority(rawValue: Int.random(in: 0...2))!, shortDescription: "Assalto mão armada", local: "Rua Armando Noro", status: Status(rawValue: Int.random(in: 0...1))!, coordinate: CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(long)!))
+            let call = Call(id: "mock", priority: Priority(rawValue: Int.random(in: 0...2))!, shortDescription: "Assalto mão armada", local: "Rua Armando Noro", status: Status(rawValue: Int.random(in: 0...1))!, coordinate: CLLocationCoordinate2D(latitude: Double(lat)!, longitude: Double(long)!))
             calls.append(call)
         }
         return calls
+    }
+    
+    static func postResolvedCall(with id: String, completion: @escaping (Bool) -> ()) {
+        var request = URLRequest(url: URL(string: "https://api.myjson.com/bins/1h75vg/\(id)")!)
+        request.httpMethod = "GET"
+        URLSession.shared.dataTask(with: request) { (data, response, error) in
+            guard error == nil else {
+                completion(false)
+                return
+            }
+            completion(true)
+            }.resume()
     }
 }
